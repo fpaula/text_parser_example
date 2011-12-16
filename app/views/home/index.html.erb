@@ -3,7 +3,6 @@
     <code>gem install text_parser</code>
 </div>
 <div class="main">
-    <div class="fb-like" data-href="http://textparser.heroku.com/" data-send="true" data-width="450" data-show-faces="true"></div>
     <fieldset class="main-form">
         <legend>Arguments</legend>
         <%= form_tag('/') do -%>
@@ -28,14 +27,20 @@
     </fieldset>
     <fieldset class="info">
         <legend>Info</legend>
+            <p><cite><%= @gem_info["info"] %></cite></p>
             <ul>
-                <li>Name: <%= @gem_info["name"] %></li>
-                <li>Current version: <%= @gem_info["version"] %></li>   
-                <li>Downloads: <%= @gem_info["downloads"] %></li>   
-                <li>Author: <%= @gem_info["authors"] %></li> 
-                <li><a target="_blank" href="<%= @gem_info["project_uri"] %>">RubyGems.org</a></li>
-                <li><a target="_blank" href="<%= @gem_info["source_code_uri"] %>">Source code</a></li>         
+                <li><strong>Name:</strong> <%= @gem_info["name"] %></li>
+                <li><strong>Current version:</strong> <%= @gem_info["version"] %></li>   
+                <li><strong>Downloads:</strong> <%= @gem_info["downloads"] %></li>   
+                <li><strong>Author:</strong> <%= @gem_info["authors"] %></li> 
             </ul>
+            <p><strong>Instalation:</strong><br /><code>gem install text_parser</code></p> 
+            <p><strong>Bundle:</strong><br /><code>gem 'text_parser'</code></p>
+            <ul>
+                <li><a target="_blank" href="<%= @gem_info["source_code_uri"] %>">Source code</a></li>
+                <li><a target="_blank" href="<%= @gem_info["project_uri"] %>">RubyGems.org page</a></li>
+            </ul>  
+            <div class="fb-like" data-href="http://textparser.heroku.com/" data-send="false" data-width="150" data-show-faces="true"></div>
     </fieldset>
     <% if @parsed_text %>
     <fieldset class="result">
