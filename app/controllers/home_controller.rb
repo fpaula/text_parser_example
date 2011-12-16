@@ -1,6 +1,11 @@
+require 'net/https'
+require 'uri'
+require 'json'
+
 class HomeController < ApplicationController
   def index
     @params = {:dictionary => "", :negative_dictionary => "", :order => "word", :order_direction => "asc"}
+    @gem_info = gem_info
     unless params[:text].blank?      
       @options = { :dictionary           => !params.fetch(:dictionary, "").blank? ? params[:dictionary].split(",").each{|w| w.strip!} : nil,
                    :negative_dictionary  => !params.fetch(:negative_dictionary, "").blank? ? params[:negative_dictionary].split(",").each{|w| w.strip!} : nil,
@@ -10,5 +15,17 @@ class HomeController < ApplicationController
       @parsed_text = params[:text].parse(@options)
       @params = params
     end
+  end
+  
+  private
+  
+  def gem_info    
+    uri = URI.parse('https://rubygems.org/api/v1/gems/text_parser.json')
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    request = Net::HTTP::Get.new(uri.request_uri)
+    response = http.request(request)
+    JSON.parse(response.body)
   end
 end

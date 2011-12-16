@@ -26,6 +26,17 @@
         <p><%= submit_tag 'Submit' %></p>
         <% end -%>
     </fieldset>
+    <fieldset class="info">
+        <legend>Info</legend>
+            <ul>
+                <li>Name: <%= @gem_info["name"] %></li>
+                <li>Current version: <%= @gem_info["version"] %></li>   
+                <li>Downloads: <%= @gem_info["downloads"] %></li>   
+                <li>Author: <%= @gem_info["authors"] %></li> 
+                <li><a target="_blank" href="<%= @gem_info["project_uri"] %>">RubyGems.org</a></li>
+                <li><a target="_blank" href="<%= @gem_info["source_code_uri"] %>">Source code</a></li>         
+            </ul>
+    </fieldset>
     <% if @parsed_text %>
     <fieldset class="result">
         <legend>Result</legend>
