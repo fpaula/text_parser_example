@@ -2,9 +2,9 @@
 <html>
     <head>
         <title>Text Parser Ruby Gem</title>
-        <%=s tylesheet_link_tag "application" %>
-        <%=j avascript_include_tag "application" %>
-        <%=c srf_meta_tags %>
+        <%= stylesheet_link_tag "application" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
         <meta http-equiv="cache-control" content="no-store" />
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <meta http-equiv="pragma" content="no-cache" />
@@ -39,6 +39,6 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <%=y ield %>
+        <%= yield %>
     </body>
 </html>
