@@ -19,6 +19,7 @@
             <%= text_area_tag 'negative_dictionary', @params[:negative_dictionary] %>
         </p>
         <p>
+            <%= select_minimum_length_tag %> 
             <%= select_tag "order", "<option value='word'>Order by word</option><option value='hits'>Order by hits</option>".html_safe %> 
             <%= select_tag "order_direction", "<option value='asc'>Ascending order</option><option value='desc'>Descending order</option>".html_safe %>
         </p>
