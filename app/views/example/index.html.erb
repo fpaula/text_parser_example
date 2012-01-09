@@ -1,0 +1,23 @@
+<%= render 'shared/info' %>
+<div class="code-container">
+    "Hello, hello".parse<br />
+    #=> [{:word => "hello", :hits => 2}]
+</div>
+<div class="code-container">
+    text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium consectetur."<br />
+    text.parse(:dictionary => ["dolor", "consectetur"])<br />
+    #=> [{:word => "consectetur",  :hits => 2}, {:word => "dolor", :hits => 1}]
+</div>
+<div class="code-container">
+    "beta omega gamma alpha gamma".parse(:order => :word, :order_direction => :asc)<br />
+    #=> [{:word => "alpha",  :hits => 1}, {:word => "beta",   :hits => 1}, {:word => "gamma",  :hits => 2}, {:word => "omega",  :hits => 1}]
+</div>
+<div class="code-container">
+    "This is nice".parse(:negative_dictionary => ["is", "this"])<br />
+    #=> [{:word => "nice",  :hits => 1}]
+</div>
+<div class="code-container">
+    "Hi Fred".parse(:minimum_length => 3)<br />
+    #=> [{:word => "fred", :hits => 1}]
+</div>
+ 

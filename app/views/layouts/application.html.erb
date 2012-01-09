@@ -41,6 +41,19 @@
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
         </script>
-        <%= yield %>
+        <div class="header">
+            <h1>Text Parser Ruby Gem</h1>
+            <code>gem install text_parser</code>
+        </div>
+        <div class="main-menu">
+            <ul>
+                <li><a href="/examples">Examples</a></li>
+                <li><a target="_blank" href="<%= @gem_info["source_code_uri"] %>">Source code</a></li>
+                <li><a target="_blank" href="<%= @gem_info["project_uri"] %>">RubyGems</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <%= yield %>
+        </div>
     </body>
 </html>

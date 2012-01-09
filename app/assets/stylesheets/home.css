@@ -1,15 +1,16 @@
 *{margin:0;padding:0;}
+a{text-decoration:none;}
 body{font:12px tahoma;color:#333;}
 h1{float:left;margin:5px 0 0 10px;}
 legend{font:bold 14px tahoma;color:#333;padding:0 5px;}
 textarea{width:100%;margin-bottom:5px;}
 select{margin-bottom:5px;display:inline;margin-right:10px;}
 label{display:block;}
-.header{width:100%;height:40px;margin:0 0 10px 0;}
+.header{width:100%;height:40px;}
 .header code{float:right;font-size:17px;margin:10px;}
 textarea.text{height:130px;}
-fieldset.result, fieldset.main-form, .comments{padding:10px;float:left;width:75%;}
-.main{width:95%;margin-left: auto;margin-right: auto;overflow:hidden;}
+fieldset.result, fieldset.main-form, .comments, .code-container{padding:10px;float:left;width:75%;}
+.main{width:95%;margin-left: auto;margin-right: auto;overflow:hidden;margin-top:8px;}
 .btn{border:0 none;border-radius:10px;height:30px;margin-top:2px;width:80px;}
 fieldset.info{width:19%;float:right;padding:10px;}
 fieldset.info p{margin:10px 0;}
@@ -19,6 +20,11 @@ fieldset.info ul{list-style:none;margin:10px 0;}
 table{width:100%;text-align:left;border-collapse:collapse;}
 table, th, td{border:1px solid #C0C0C0;}
 th, td{padding:5px;}
-.header, .btn, thead tr{background-color:#600E0E;color:#FFF;}
+.header, .btn, thead tr, .main-menu{background-color:#600E0E;color:#FFF;}
 .col-hits{width:200px;}
 .odd-line{background-color:#F4F4F4;}
+.code-container{background-color:#EEE;margin-top:10px;}
+.main-menu ul{margin-left:10px;list-style:none;}
+.main-menu li{display:inline;padding:1px 6px;}
+.main-menu a{color:#FFF;}
+.main-menu a:hover{color:#CCC;}
