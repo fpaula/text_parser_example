@@ -1,5 +1,8 @@
+require ::File.expand_path('../../lib/api',  __FILE__)
+
 TextParserExample::Application.routes.draw do
   root :to => 'home#index'
+  match "/api/v1" => Api, :anchor => false
   match "/examples" => "example#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

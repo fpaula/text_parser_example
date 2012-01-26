@@ -3,15 +3,15 @@
     <%= form_tag('/') do -%>
     <p>
         <label for="text">Text</label>
-        <%= text_area_tag 'text', @params[:text], :class => 'text' %>
+        <%= text_area_tag 'text', params[:text], :class => 'text' %>
     </p>
     <p>
         <label for="dictionary">Dictionary (comma separated)</label>
-        <%= text_area_tag 'dictionary', @params[:dictionary] %>
+        <%= text_area_tag 'dictionary', params[:dictionary] %>
     </p>
     <p>
         <label for="negative_dictionary">Negative dictionary (comma separated)</label>
-        <%= text_area_tag 'negative_dictionary', @params[:negative_dictionary] %>
+        <%= text_area_tag 'negative_dictionary', params[:negative_dictionary] %>
     </p>
     <p>
         <%= select_minimum_length_tag %> 

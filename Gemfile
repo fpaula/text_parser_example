@@ -6,6 +6,7 @@ gem 'rails', '3.1.3'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'text_parser', '0.1.8'
+gem 'sinatra'
 
 # Gems used only for assets and not required
 # in production environments by default.
