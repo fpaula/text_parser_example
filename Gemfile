@@ -5,7 +5,7 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'text_parser', '0.1.8'
+gem 'text_parser', '0.1.9'
 gem 'sinatra'
 
 # Gems used only for assets and not required
