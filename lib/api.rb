@@ -9,13 +9,13 @@ class Api < Sinatra::Base
     if params[:text]
       params[:text].parse(@options).to_json
     else
-      status 500
+      status 400
       {:error=>"Text is required"}.to_json
     end
   end
   get "/*" do
     content_type :json
-    status 404
+    status 405
     {:error=>"Use method POST"}.to_json
   end
 end
