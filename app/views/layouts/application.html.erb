@@ -49,8 +49,10 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/examples">Examples</a></li>
-                <li><a target="_blank" href="<%= @gem_info["source_code_uri"] %>">Source code</a></li>
-                <li><a target="_blank" href="<%= @gem_info["project_uri"] %>">RubyGems</a></li>
+                <% if @gem_info %>
+                  <li><a target="_blank" href="<%= @gem_info["source_code_uri"] %>">Source code</a></li>
+                  <li><a target="_blank" href="<%= @gem_info["project_uri"] %>">RubyGems</a></li>
+                <% end %>
             </ul>
         </div>
         <div class="main">

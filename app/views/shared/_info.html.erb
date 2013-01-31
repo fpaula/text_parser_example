@@ -1,14 +1,18 @@
     <fieldset class="info">
         <legend>Info</legend>
+            <% if @gem_info %>
             <p><cite><%= @gem_info["info"] %></cite></p>
             <ul>
                 <li><strong>Name:</strong> <%= @gem_info["name"] %></li>
-                <li><strong>Current version:</strong> <%= @gem_info["version"] %></li>   
-                <li><strong>Downloads:</strong> <%= @gem_info["downloads"] %></li>   
-                <li><strong>Author:</strong> <%= @gem_info["authors"] %></li> 
+                <li><strong>Current version:</strong> <%= @gem_info["version"] %></li>
+                <li><strong>Downloads:</strong> <%= @gem_info["downloads"] %></li>
+                <li><strong>Author:</strong> <%= @gem_info["authors"] %></li>
             </ul>
+            <% else %>
+              <p>RubyGems API is unavailable</p>
+            <% end %>
             <p><img src="https://secure.travis-ci.org/fpaula/text_parser.png" title="Build status"/></p>
-            <p><strong>Instalation:</strong><br /><code>gem install text_parser</code></p> 
-            <p><strong>Bundle:</strong><br /><code>gem 'text_parser'</code></p>  
+            <p><strong>Instalation:</strong><br /><code>gem install text_parser</code></p>
+            <p><strong>Bundle:</strong><br /><code>gem 'text_parser'</code></p>
             <div class="fb-like" data-href="http://textparser.heroku.com/" data-send="false" data-width="150" data-show-faces="true"></div>
     </fieldset>
