@@ -13,9 +13,11 @@
 		    BlackBerry: function() {
 		        return !!navigator.userAgent.match(/BlackBerry/i);
 		    },
-		    iOS: function() {
-		        return !!navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		    Iphone: function() {
+		        return !!navigator.userAgent.match(/iPhone|iPod/i);
 		    },
+		    Ipad: function() {
+		        return !!navigator.userAgent.match(/iPad/i);
 		    Opera: function() {
 		        return !!navigator.userAgent.match(/Opera Mini/i);
 		    },
@@ -27,6 +29,12 @@
 		    }
 		};
 	</script>
+	<div id="iphone">IPAD: 
+		<script type="text/javascript">
+			document.write(isMobile.Ipad());
+		</script>
+	</div>
+
 	<div id="iphone">IPHONE: 
 		<script type="text/javascript">
 			document.write(isMobile.iOS());
