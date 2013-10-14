@@ -31,8 +31,23 @@
   };
 	</script>
 
-	<p><a href="http://maps.apple.com/?q=-23.54606,-46.64908">Apple map</a></p>
-	<p><a href="geo:48.89364,2.33739">Android map</a></p>
+<script type="text/javascript">
+	  function routeUrl(rawData) {
+    var url = rawData.url.replace("estabelecimento","como-chegar");
+    if (isMobile.Iphone()) {
+      url = "http://maps.apple.com/?q="+rawData.geo_location;
+    } else if (isMobile.Android()) {
+      url = "http://maps.google.com/maps?q=loc:"+rawData.geo_location;
+    }
+    return url;
+  }
+</script>
+	<div>Function result: 
+		<script type="text/javascript">
+			var rawData = {geo_location:"48.89364,2.33739", url: ""};
+			document.write('<p><a href="'+routeUrl(rawData)+'">Map</a></p>');
+		</script>
+	</div>
 
 	<div>USER AGENT: 
 		<script type="text/javascript">
