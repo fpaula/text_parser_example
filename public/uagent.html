@@ -18,6 +18,7 @@
 		    },
 		    Ipad: function() {
 		        return !!navigator.userAgent.match(/iPad/i);
+		    },
 		    Opera: function() {
 		        return !!navigator.userAgent.match(/Opera Mini/i);
 		    },
@@ -37,7 +38,7 @@
 
 	<div id="iphone">IPHONE: 
 		<script type="text/javascript">
-			document.write(isMobile.iOS());
+			document.write(isMobile.Iphone());
 		</script>
 	</div>
 
