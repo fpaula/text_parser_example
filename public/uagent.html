@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var isMobile = {
+		    Android: function() {
+		        return !!navigator.userAgent.match(/Android/i);
+		    },
+		    BlackBerry: function() {
+		        return !!navigator.userAgent.match(/BlackBerry/i);
+		    },
+		    iOS: function() {
+		        return !!navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		    },
+		    Opera: function() {
+		        return !!navigator.userAgent.match(/Opera Mini/i);
+		    },
+		    Windows: function() {
+		        return !!navigator.userAgent.match(/IEMobile/i);
+		    },
+		    any: function() {
+		        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		    }
+		};
+	</script>
+	<div id="iphone">IPHONE: 
+		<script type="text/javascript">
+			document.write(isMobile.iOS());
+		</script>
+	</div>
+
+	<div id="android">ANDROID: 
+		<script type="text/javascript">
+			document.write(isMobile.Android());
+		</script>
+	</div>
+
+</body>
+</html>
