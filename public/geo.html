@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Geo location</title>
+</head>
+<body>
+  <header>
+    <h1>Check your location</h1>
+  </header>
+  <section>
+    <div class="result"></div>
+    <button id="get">Get Current Position</button>
+    <button id="watch" data-action="watch">Watch Position</button>
+  </section>
+  <script type="text/javascript" src="assets/javascripts/zepto.js"></script>
+  <script type="text/javascript" src="assets/javascripts/geo.js"></script>
+  <script>
+    Zepto(function($){
+      $('#get').on('click', function(){
+        Geo.get(print);
+      });
+      $('#watch').on('click', function(){
+        var element = $(this);
+        if (element.data('action') === 'watch') {
+          Geo.watch(print);
+          $(this).data('action', 'stop');
+          $(this).html('Stop watch');
+        } else {
+          Geo.clearWatch();
+          $(this).data('action', 'watch');
+          $(this).html('Watch Position');
+        }
+      });
+    });
+
+    function print(geo) {
+      var container = $('.result');
+      var hr = $('<hr>');
+      var ul = $('<ul></ul>');
+      ul.append(Geo._createPrintElement("Speed", geo.coords.speed));
+      ul.append(Geo._createPrintElement("Heading", geo.coords.heading));
+      ul.append(Geo._createPrintElement("Altitude Accuracy", geo.coords.altitudeAccuracy));
+      ul.append(Geo._createPrintElement("Accuracy", geo.coords.accuracy));
+      ul.append(Geo._createPrintElement("Altitude", geo.coords.altitude));
+      ul.append(Geo._createPrintElement("Longitude", geo.coords.longitude));
+      ul.append(Geo._createPrintElement("Latitude", geo.coords.latitude));
+      container.append(ul);
+      container.append(hr);
+
+      return container;
+    }
+  </script>
+</body>
+</html>
