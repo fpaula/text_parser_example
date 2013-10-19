@@ -7,23 +7,24 @@
 <body>
   <header>
     <h1>Check your location</h1>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/global.css">
   </header>
-  <section>
+  <div id="buttons">
     <div class="result"></div>
-    <button id="get">Get Current Position</button>
-    <button id="watch" data-action="watch">Watch Position</button>
-  </section>
+    <button id="watch" data-action="watch">Start watch position</button>
+  </div>
+  <div id="map-canvas"></div>
   <script type="text/javascript" src="assets/javascripts/zepto.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript" src="assets/javascripts/geo.js"></script>
   <script>
     Zepto(function($){
-      $('#get').on('click', function(){
-        Geo.get(print);
-      });
+      Geo.get(showMap);
       $('#watch').on('click', function(){
         var element = $(this);
         if (element.data('action') === 'watch') {
-          Geo.watch(print);
+          Geo.watch(draw);
           $(this).data('action', 'stop');
           $(this).html('Stop watch');
         } else {
@@ -34,21 +35,28 @@
       });
     });
 
-    function print(geo) {
-      var container = $('.result');
-      var hr = $('<hr>');
-      var ul = $('<ul></ul>');
-      ul.append(Geo._createPrintElement("Speed", geo.coords.speed));
-      ul.append(Geo._createPrintElement("Heading", geo.coords.heading));
-      ul.append(Geo._createPrintElement("Altitude Accuracy", geo.coords.altitudeAccuracy));
-      ul.append(Geo._createPrintElement("Accuracy", geo.coords.accuracy));
-      ul.append(Geo._createPrintElement("Altitude", geo.coords.altitude));
-      ul.append(Geo._createPrintElement("Longitude", geo.coords.longitude));
-      ul.append(Geo._createPrintElement("Latitude", geo.coords.latitude));
-      container.append(ul);
-      container.append(hr);
+    var map;
+    var coords = [new google.maps.LatLng(37.772323, -122.214897)];
+    function draw(geo) {
+      coords.push(new google.maps.LatLng(geo.coords.latitude, geo.coords.longitude));
+      var line = new google.maps.Polyline({
+        path: coords,
+        geodesic: true,
+        strokeColor: 'green',
+        strokeOpacity: 1.0,
+        strokeWeight: 5
+      });
+      console.log(line);
+      line.setMap(map);
+    }
 
-      return container;
+    function showMap(geo) {
+      var mapOptions = {
+        center: new google.maps.LatLng(geo.coords.latitude, geo.coords.longitude),
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     }
   </script>
 </body>

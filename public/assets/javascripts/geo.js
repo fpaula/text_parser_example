@@ -25,9 +25,6 @@ var Geo = {
     this._watchId = null;
     return true;
   },
-  _createPrintElement: function (key, value) {
-    return $("<li>" + key + ": " + value + "</li>");
-  },
   _error: function(error) {
     console.warn('ERROR(' + error.code + '): ' + error.message);
   },
