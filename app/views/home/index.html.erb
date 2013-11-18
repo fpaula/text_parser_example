@@ -14,11 +14,12 @@
         <%= text_area_tag 'negative_dictionary', params[:negative_dictionary] %>
     </p>
     <p>
-        <%= select_minimum_length_tag %> 
-        <%= select_tag "order", "<option value='word'>Order by word</option><option value='hits'>Order by hits</option>".html_safe %> 
+        <%= select_minimum_length_tag %>
+        <%= select_tag "order", "<option value='word'>Order by word</option><option value='hits'>Order by hits</option>".html_safe %>
         <%= select_tag "order_direction", "<option value='asc'>Ascending order</option><option value='desc'>Descending order</option>".html_safe %>
     </p>
-    <p><%= submit_tag 'Submit', :class => 'btn' %></p>
+    <% btn_class = params[:variation] ? "btn-#{params[:variation]}" : "btn" %>
+    <p><%= submit_tag 'Submit', :class => btn_class %></p>
     <% end -%>
 </fieldset>
 
@@ -39,7 +40,7 @@
           <tr class="<%= cycle("odd-line", "") -%>">
             <td><%= p[:word] %></td>
             <td><%= p[:hits] %></td>
-          </tr>  
+          </tr>
         <% end %>
         </tbody>
     </table>

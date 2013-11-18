@@ -12,6 +12,10 @@ textarea.text{height:130px;}
 fieldset.result, fieldset.main-form, .comments, .code-container{padding:10px;float:left;width:75%;}
 .main{width:95%;margin-left: auto;margin-right: auto;overflow:hidden;margin-top:8px;}
 .btn{border:0 none;border-radius:10px;height:30px;margin-top:2px;width:80px;}
+.btn-1{border:0 none;border-radius:10px;height:30px;margin-top:2px;width:80px;background-color:red}
+.btn-2{border:0 none;border-radius:10px;height:30px;margin-top:2px;width:80px;background-color:black}
+.btn-3{border:0 none;border-radius:10px;height:30px;margin-top:2px;width:80px;background-color:blue}
+
 fieldset.info{width:19%;float:right;padding:10px;}
 fieldset.info p{margin:10px 0;}
 fieldset.info cite{font-size:17px;margin:10px 0;}
